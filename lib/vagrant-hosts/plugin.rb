@@ -11,8 +11,8 @@ class VagrantHosts::Plugin < Vagrant.plugin(2)
   DESC
 
   config(:hosts, :provisioner) do
-    require_relative 'config'
-    VagrantHosts::Config
+    require_relative 'config/hosts'
+    VagrantHosts::Config::Hosts
   end
 
   provisioner(:hosts) do

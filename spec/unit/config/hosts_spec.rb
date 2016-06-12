@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-require 'vagrant-hosts/config'
+require 'vagrant-hosts/config/hosts'
 
-describe VagrantHosts::Config do
+describe VagrantHosts::Config::Hosts do
   let(:machine)  { double('machine') }
 
   describe 'hosts' do

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 require 'vagrant-hosts/addresses'
-require 'vagrant-hosts/config'
+require 'vagrant-hosts/config/hosts'
 
 
 describe 'Vagrant Integration: VagrantHosts::Addresses' do
@@ -90,7 +90,7 @@ EOF
 
   describe '#collect_imports' do
     it 'returns imports from other machines' do
-      config = VagrantHosts::Config.new
+      config = VagrantHosts::Config::Hosts.new
       config.imports = ['global', 'ssh']
       config.finalize!
 
@@ -103,7 +103,7 @@ EOF
 
   describe '#all_hosts' do
     it 'resolves special addresses and aliases' do
-      config = VagrantHosts::Config.new
+      config = VagrantHosts::Config::Hosts.new
       config.add_host '@vagrant_private_networks', ['@vagrant_hostnames']
       config.finalize!
 

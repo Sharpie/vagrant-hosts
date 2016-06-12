@@ -78,8 +78,8 @@ module VagrantHosts::Addresses
   # Collect all hosts entries for a machine
   #
   # @param machine [Vagrant::Machine] A vagrant VM to perform collection upon.
-  # @param config [VagrantHosts::Config] A configuration object for the hosts
-  #   provisioner.
+  # @param config [VagrantHosts::Config::Hosts] A configuration object for
+  #   the hosts provisioner.
   #
   # @return [Array<Array<IPAddr, Array<String>>>] A list of address, alias
   #   tuples.

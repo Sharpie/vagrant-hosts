@@ -1,7 +1,9 @@
 require 'vagrant'
 
-module VagrantHosts
-  class Config < Vagrant.plugin('2', :config)
+module VagrantHosts;end
+
+module VagrantHosts::Config
+  class Hosts < Vagrant.plugin('2', :config)
 
     # @!attribute hosts
     #   @return [Array<Array<String, Array<String>>>] A list of IP addresses and their aliases
