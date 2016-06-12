@@ -22,6 +22,8 @@ Gem::Specification.new do |gem|
   gem.files        = %x{git ls-files -z}.split("\0")
   gem.require_path = 'lib'
 
+  gem.add_dependency 'dnsruby', '~> 1.59.0'
+
   # Pinned for compatibility with vagrant-spec.
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 2.14.0'
