@@ -88,8 +88,12 @@ module VagrantHosts::Config
     # @param other [VagrantHosts::Config]
     # @return [VagrantHosts::Config] The merged results
     def merge(other)
-      result = super
-      result.instance_variable_set(:@hosts, self.hosts.dup + other.hosts.dup)
+      begin
+        result = super
+        result.instance_variable_set(:@hosts, self.hosts.dup + other.hosts.dup)
+      rescue => e
+        binding.pry
+      end
 
       result
     end

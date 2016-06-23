@@ -15,9 +15,19 @@ class VagrantHosts::Plugin < Vagrant.plugin(2)
     VagrantHosts::Config::Hosts
   end
 
+  config(:dns_update, :provisioner) do
+    require_relative 'config/dns_update'
+    VagrantHosts::Config::DnsUpdate
+  end
+
   provisioner(:hosts) do
     require_relative 'provisioner/hosts'
     VagrantHosts::Provisioner::Hosts
+  end
+
+  provisioner(:dns_update) do
+    require_relative 'provisioner/dns_update'
+    VagrantHosts::Provisioner::DnsUpdate
   end
 
   # Guest capabilities for vagrant-hosts

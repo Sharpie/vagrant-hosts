@@ -5,7 +5,7 @@ require 'config_builder/model'
 # @since 2.7.0
 module VagrantHosts
   module ConfigBuilder
-    class Model < ::ConfigBuilder::Model::Provisioner::Base
+    class Hosts < ::ConfigBuilder::Model::Provisioner::Base
 
       # @!attribute [rw] hosts
       def_model_attribute :hosts
@@ -28,6 +28,20 @@ module VagrantHosts
       end
 
       ::ConfigBuilder::Model::Provisioner.register('hosts', self)
+    end
+
+    class DnsUpdate < ::ConfigBuilder::Model::Provisioner::Base
+
+      # @!attribute [rw] nameservers
+      def_model_attribute :nameservers
+      # @!attribute [rw] key
+      def_model_attribute :tsig_key
+      # @!attribute [rw] purge_on_destroy
+      def_model_attribute :purge_on_destroy
+      # @!attribute [rw] sync_hosts
+      def_model_attribute :records
+
+      ::ConfigBuilder::Model::Provisioner.register('dns_update', self)
     end
   end
 end
